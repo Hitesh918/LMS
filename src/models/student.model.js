@@ -15,9 +15,18 @@ const studentSchema = new mongoose.Schema({
         required: [true, 'Email cannot be empty'],
         unique: true
     },
-    password: {
+    mobile : {
         type: String,
-        required: [true, 'Password cannot be empty']
+        required: [true, 'Mobile number cannot be empty'],
+        unique: true
+    },
+    programId: {
+        type: String,
+        required: [true, 'Program cannot be empty']   
+    },
+    semester : {
+        type: String,
+        required: [true, 'Semester cannot be empty']   
     }
 });
 

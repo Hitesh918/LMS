@@ -6,5 +6,4 @@ const studentRouter = express.Router();
 
 studentRouter.post('/', studentController.addStudent);
 
-
 module.exports = studentRouter;
