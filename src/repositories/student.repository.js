@@ -10,10 +10,44 @@ class StudentRepository {
 				name: studentData.name,
 				username: studentData.username,
 				email: studentData.email,
+				mobile: studentData.mobile,
 				password: studentData.password
 			});
 			return student;
 		} catch (error) {
+			console.log(error);
+			throw error;
+		}
+	}
+
+	//find student by username
+	async findStudentByUsername(username) {
+		try {
+			const student = await Student.findOne({ username: username });
+			return student;
+		} catch (error) {
+			console.log(error);
+			throw error;
+		}
+	}
+
+	//find student by email
+	async findStudentByEmail(email) {
+		try {
+			const student = await Student.findOne({ email: email });
+			return student;
+		} catch (error) {
+			console.log(error);
+			throw error;
+		}
+	}
+
+	// find student by id
+	async findStudentById(studentId) {
+		try {
+			const student = await Student.findOne({ _id: studentId });;
+			return student;
+		} catch (error) {	
 			console.log(error);
 			throw error;
 		}

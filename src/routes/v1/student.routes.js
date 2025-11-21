@@ -4,6 +4,6 @@ const { studentController } = require('../../controllers');
 
 const studentRouter = express.Router();
 
-studentRouter.post('/', studentController.addStudent);
+studentRouter.post('/signup', studentController.signup);
 
 module.exports = studentRouter;

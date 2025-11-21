@@ -20,7 +20,23 @@ async function addStudent(req, res, next) {
     }
 }
 
+async function signup(req, res, next) {
+    try {
+        console.log("incoming req body", req.body);
+        const newstudent = await studentService.signup(req.body);
+        return res.status(StatusCodes.CREATED).json({
+            success: true,
+            message: 'Successfully created a new student',
+            error: {},
+            data: newstudent
+        })
+    } catch(error) {
+        next(error);
+    }
+}
+
 module.exports = {
     addStudent,
+    signup
 }
 

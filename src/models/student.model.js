@@ -22,11 +22,11 @@ const studentSchema = new mongoose.Schema({
     },
     programId: {
         type: String,
-        required: [true, 'Program cannot be empty']   
+        required: false
     },
     semester : {
         type: String,
-        required: [true, 'Semester cannot be empty']   
+        required: false
     }
 });
 
