@@ -11,5 +11,6 @@ module.exports = {
     Subject: require('./subject.model'),
     Unit: require('./unit.model'),
     Content : require('./content.model'),
-    Progress: require('./progress.model')
+    Progress: require('./progress.model'),
+    Ticket: require('./ticket.model')
 }

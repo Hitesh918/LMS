@@ -16,14 +16,13 @@ const progressSchema = new mongoose.Schema({
         items: [{
             contentId: { type: mongoose.Schema.Types.ObjectId, ref: 'Content' },
             type: { type: String, enum: ['ppt', 'video', 'material', 'quiz', 'assignment', 'project'] },
-            completed: { type: Boolean, default: false },
-            completedAt: Date
+            completed: { type: Boolean, default: false }
         }],
 
         unitCompleted: { type: Boolean, default: false },
     }],
 
-    subjectCompleted: { type: Boolean, default: false },
+    subjectCompleted: { type: Boolean, default: false }
 });
 
 module.exports = mongoose.model('Progress', progressSchema);

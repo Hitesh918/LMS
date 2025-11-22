@@ -35,8 +35,24 @@ async function signup(req, res, next) {
     }
 }
 
-module.exports = {
-    addStudent,
-    signup
+async function raiseTicket(req, res, next) {
+    try {
+        console.log("incoming req body", req.body);
+        const ticket = await studentService.raiseTicket(req.body);
+        return res.status(StatusCodes.CREATED).json({
+            success: true,
+            message: 'Successfully raised a new ticket',
+            error: {},
+            data: ticket
+        })
+    } catch(error) {
+        next(error);
+    }
 }
 
+
+module.exports = {
+    addStudent,
+    signup,
+    raiseTicket
+}

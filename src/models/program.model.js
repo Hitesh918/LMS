@@ -11,8 +11,12 @@ const programSchema = new mongoose.Schema({
         required: true
     },
     years: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Year'
+        sem1: [{
+            type: String     // subjectCode
+        }],
+        sem2: [{
+            type: String     // subjectCode
+        }]
     }]
 });
 

@@ -10,14 +10,6 @@ const subjectSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    credits: {
-        type: Number,
-        required: true
-    },
-    facultyId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    },
     units: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Unit'

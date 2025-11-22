@@ -5,9 +5,10 @@ dotenv.config();
 
 class StudentService {
 
-    constructor(studentRepository , userRepository) {
+    constructor(studentRepository , userRepository, ticketRepository) {
         this.studentRepository = studentRepository;
         this.userRepository = userRepository;
+        this.ticketRepository = ticketRepository;
     }
 
     //signup service
@@ -37,6 +38,14 @@ class StudentService {
         });
         return student;
     }
+
+    //raise ticket 
+    async raiseTicket(ticketData) {
+        const ticket = await this.ticketRepository.createTicket(ticketData);
+        return ticket;
+    }
+
+
 
     // async createStudent(studentData) {
     //     const student = await this.studentRepository.createStudent(studentData);
