@@ -7,4 +7,6 @@ facultyRouter.post('/tickets/:ticketId/messages', facultyController.sendReplyToT
 
 facultyRouter.post('/tickets/:ticketId/close', facultyController.closeTicket);
 
+facultyRouter.get('/tickets', facultyController.getTickets);
+
 module.exports = facultyRouter;

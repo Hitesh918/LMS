@@ -36,7 +36,26 @@ async function closeTicket(req, res, next) {
     }
 }
 
+//get tickets 
+async function getTickets(req, res, next) {
+    try {
+        console.log("incoming req params", req.params);
+        const facultyId = req.params.facultyId;
+        const tickets = await facultyService.getTickets(facultyId);
+        return res.status(StatusCodes.OK).json({
+            success: true,
+            message: 'Successfully fetched tickets for the faculty',
+            error: {},
+            data: tickets
+        })
+    } catch(error) {
+        next(error);
+    }
+
+}
+
 module.exports = {
     sendReplyToTicket,
-    closeTicket
+    closeTicket,
+    getTickets
 }

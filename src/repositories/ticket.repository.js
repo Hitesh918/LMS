@@ -51,6 +51,17 @@ class TicketRepository {
         }
     }
 
+    //get all tickets by subject code
+    async getTicketsBySubjectCode(subjectCode) {
+        try {
+            const tickets = await Ticket.find({ subjectCode: subjectCode });
+            return tickets;
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
+
     // get all tickets
     async getAllTickets() {
         try {

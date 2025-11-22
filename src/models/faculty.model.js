@@ -15,9 +15,13 @@ const facultySchema = new mongoose.Schema({
         required: [true, 'Email cannot be empty'],
         unique: true
     },
-    password: {
+    mobile : {
         type: String,
-        required: [true, 'Password cannot be empty']
+        required: [true, 'Mobile number cannot be empty'],
+        unique: true
+    },
+    subjectCodes: {
+        type: [String]
     }
 });
 

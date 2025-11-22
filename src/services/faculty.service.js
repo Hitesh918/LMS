@@ -12,6 +12,18 @@ class FacultyService {
         return ticket;
     }
 
+    //get all tickets
+    async getTickets(facultyId) {
+        const faculty = await this.facultyRepository.getFacultyById(facultyId);
+        const subjectCodes = faculty.subjectCodes;
+        let allTickets = [];
+        for (let subjectCode of subjectCodes) {
+            const tickets = await this.ticketRepository.getTicketsBySubjectCode(subjectCode);
+            allTickets = allTickets.concat(tickets);
+        }
+        return allTickets;
+    }
+
     // close a ticket
     async closeTicket(ticketId) {
         const ticket = await this.ticketRepository.closeTicket(ticketId);
